@@ -1,0 +1,35 @@
+.container-header-pv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions-md-pv{
+    display: flex;
+    gap: 48px;
+}
+
+.actions-smd-pv{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.actions-smd-pv{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.actions-smd-pv button{
+    order: 2;
+}
+
+.actions-smd-pv .container-bk{
+    order: 1;
+}
+
+.less-padding-pv{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

@@ -1,0 +1,28 @@
+.id-purchase-pov{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 30%;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border-color:  #2b0548;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.navigation-pov{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.actions-md-pov{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

@@ -1,0 +1,81 @@
+.row-bv{
+    margin-top: 0 !important;
+}
+
+.basket-overload-bv{
+    overflow: auto;
+    max-height: 800px;
+    gap: 8px;
+}
+
+.basket-overload-bv::-webkit-scrollbar{
+    width: 1em;
+}
+
+.basket-overload-bv::-webkit-scrollbar-thumb{
+    background-color: rgb(219, 219, 219);
+    outline: 1px solid rgb(155, 155, 155);
+    border-radius: 6px;
+}
+
+.row-space-bv{
+    justify-content: space-between;
+}
+
+.basket-button-bv{
+    background-color: #4630ab;
+    border-color: #1a032c;
+    padding: 2rem 2.5rem;
+    display: flex;             /* nested flex container */
+    flex-direction: column;    /* vertical alignment of flex items */
+    justify-content: center;   /* center flex items vertically */
+    align-items: center;       /* center flex items horizontally */
+}
+
+
+.header-bv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.actions-md-bv{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.basket-total-bv{
+    display: inline-block;
+    display: flex;             /* nested flex container */
+    flex-direction: column;    /* vertical alignment of flex items */
+    justify-content: center;   /* center flex items vertically */
+    align-items: center;       /* center flex items horizontally */
+}
+
+.purchase-actions-bv{
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.label-bv{
+    color: white;
+    font-weight: 600;
+    transform: translate(0, 10px);
+}
+
+.purchase-actions-inner-bv{
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    height: 50%;
+}
+
+@media only screen and (max-width: 766px) {
+    .purchase-actions-inner-bv{
+        height: 100%;
+    }
+}

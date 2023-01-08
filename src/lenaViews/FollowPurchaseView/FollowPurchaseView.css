@@ -1,0 +1,131 @@
+.follow-basket-fpv span{
+    color: white;
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: black;
+    font-weight: bold;
+  }
+
+.messages-follow-container-fpv::-webkit-scrollbar{
+    width: 1em;
+}
+
+.messages-follow-container-fpv::-webkit-scrollbar-thumb{
+    background-color: rgb(219, 219, 219);
+    outline: 1px solid rgb(155, 155, 155);
+    border-radius: 6px;
+}
+
+.messages-follow-container-fpv{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 600px;
+    padding: 0 10px 10px 10px;
+    margin-bottom: 4px;
+}
+
+.indication-follow-purchase-fpv{
+    margin-top: 3px;
+    padding-right: 35px;
+    padding-left: 25px;
+    margin-bottom: 48px;
+}
+
+.follow-data-container-fpv{
+    margin-top: 50px;
+}
+
+.input-container-fpv{
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.icon-fpv{
+    width: 22px;
+    height: 22px;
+    margin: 4px;
+}
+
+.conversation-fpv{
+    width: 100%;
+}
+
+.conversation-fpv button{
+    width: 100%;
+}
+
+
+.follow-overload{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 35vh;
+    margin-top: -45px;
+}
+
+.basket-overload::-webkit-scrollbar, 
+.follow-overload::-webkit-scrollbar{
+    width: 1em;
+}
+
+.basket-overload::-webkit-scrollbar-thumb,
+.follow-overload::-webkit-scrollbar-thumb{
+    background-color: rgb(219, 219, 219);
+    outline: 1px solid rgb(155, 155, 155);
+    border-radius: 6px;
+}
+
+
+.follow-overload-fpv{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 800px;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.follow-overload-fpv .col-md-12{
+    margin-top: 0;
+}
+
+.follow-overload-fpv::-webkit-scrollbar{
+    width: 1em;
+}
+
+.follow-overload-fpv::-webkit-scrollbar-thumb{
+    background-color: rgb(219, 219, 219);
+    outline: 1px solid rgb(155, 155, 155);
+    border-radius: 6px;
+}
+
+
+.header-fpv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.actions-md-fpv{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.margins-md-fpv{
+    margin-top: 48px;
+    margin-bottom: 100px;
+}
+
+
+.search-container-fpv{
+    width: 99.9%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+}
+
+.follow-basket-fpv{
+    margin-top: -60px;
+}

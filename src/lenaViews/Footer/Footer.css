@@ -1,0 +1,41 @@
+.main-f{
+    width: 99.9%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-image: linear-gradient(#2b0548, #4630ab);
+    border-top-style: solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.social{
+    display: flex;
+    gap: 36px;
+}
+
+.instagram-f, .facebook-f{
+    width: 60px;
+    height: 60px;
+    color: white;
+}
+
+.contacts-f{
+    align-self: center;
+    color: white;
+    text-align: end;
+}
+
+.contacts-f h4{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+}
+
+.contacts-text-f{
+    font-weight: 700;
+}

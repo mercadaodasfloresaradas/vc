@@ -1,0 +1,152 @@
+.card-npc{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    overflow: hidden;
+    padding-right: 12px;
+    height: 170px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card-npc h4{
+    font-size: 16px;
+}
+
+.container-npc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-height: 170px;
+    height: 100%;
+    width: 100%;
+}    
+
+.item-npc{
+    padding: 16px;
+}
+
+.product-view-buy-button-npc{
+    background-color: #4630ab;
+    border-color: #1a032c;
+    padding: 12px;
+}
+
+.product-view-buy-button-npc svg{
+    width: 30px;
+    height: 30px;
+}
+
+.img-npc{
+    object-fit: cover;
+    min-height: 170px;
+}
+
+.container-img-npc{
+    flex-basis: 25%;
+    max-width: 25%;
+    min-width: 25%;
+    position: relative;
+    height: 100%;
+}
+
+.loading-npc{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30px, -30px);
+}
+
+.buy-npc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 800;
+    gap: 12px;
+}
+
+.buy-npc p{
+    margin-bottom: 0;
+}
+
+.zoom-npc{
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    stroke-width: 0.2px;
+    stroke: black;
+
+    -webkit-animation: pulse 3s infinite ease-in-out;
+    -o-animation: pulse 3s infinite ease-in-out;
+    -ms-animation: pulse 3s infinite ease-in-out; 
+    -moz-animation: pulse 3s infinite ease-in-out; 
+    animation: pulse 3s infinite ease-in-out;   
+}
+
+.empty-npc{
+    width: 56px;
+}
+
+.zoom-container-npc{
+    width: 25%;
+    height: 100%;
+    display: block;
+}
+
+@-webkit-keyframes pulse {
+    0% { 
+        -webkit-transform: translate(-50%, -50%) scale(0.9); 
+        opacity: 0.1; 
+    }
+    50% { 
+        -webkit-transform: translate(-50%, -50%) scale(1); 
+        opacity: 1; 
+    }
+    100% { 
+        -webkit-transform: translate(-50%, -50%) scale(0.9); 
+        opacity: 0.1; 
+    }
+}
+
+@keyframes pulse {
+    0% { 
+        transform: translate(-50%, -50%) scale(0.9); 
+        opacity: 0.1; 
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(0.9); 
+        opacity: 0.1; 
+    }
+}
+
+.description-container-npc{
+    max-height: 120px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.scroll-npc::after{
+    content: 'V';
+    position: sticky;
+    bottom: 0;
+    left: 50%;
+    color: #4630ab;
+    transform: translate(-50%, 0);
+
+    -webkit-animation: pulse 3.5s infinite ease-in-out;
+    -o-animation: pulse 3.5s infinite ease-in-out;
+    -ms-animation: pulse 3.5s infinite ease-in-out; 
+    -moz-animation: pulse 3.5s infinite ease-in-out; 
+    animation: pulse 3.5s infinite ease-in-out;  
+}
+

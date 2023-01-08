@@ -1,0 +1,27 @@
+export const baseURL = 'https://redirect-without-cors-and50-mb.vercel.app';
+export const productsByCategory = baseURL + '/products/bycategory';
+export const photo = baseURL + '/products/photo';
+export const categories = baseURL + '/products/categories';
+export const newSale = baseURL + '/sales/new';
+export const showSale = baseURL + '/sales/showpurchase';
+export const test = baseURL + '/products/UI';
+export const testPhoto = baseURL + '/products/UI/photo';
+export const comment = baseURL + '/sales/mycomment';
+export const home = baseURL + '/';
+export const config = baseURL + '/config';
+
+export const contacts       = config + '/contacts';
+export const payMethods     = config + '/payMethods';
+export const noService      = config + '/noService';
+export const welcome        = config + '/welcome';
+export const storeName      = config + '/storeName';
+export const warnings       = config + '/warnings';
+export const delivery       = config + '/delivery';
+export const support        = config + '/support';
+export const returns        = config + '/returns'; 
+export const toPay          = config + '/pay'; 
+export const payed          = config + '/payed'; 
+export const finalized      = config + '/finalized'; 
+export const limitProducts  = config + '/limit';
+export const facebook       = config + '/facebook';
+export const instagram      = config + '/instagram';

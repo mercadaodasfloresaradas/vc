@@ -1,0 +1,10 @@
+.container-tpui{
+    padding: 24px 4px;
+    
+}
+
+.cards-tpui{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

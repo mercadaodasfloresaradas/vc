@@ -1,0 +1,56 @@
+.container-nnp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #4630ab;
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #4630ab;
+    font-size: 32px;
+    font-weight: 700;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+
+    -webkit-animation: up 1.5s ease-in-out;
+    -o-animation: up 1.5s ease-in-out;
+    -ms-animation: up 1.5s ease-in-out; 
+    -moz-animation: up 1.5s ease-in-out; 
+    animation: up 1.5s ease-in-out;
+}
+
+.block-nnp{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes up {
+    0% { 
+        transform: translate(-50%, -50%) scale(0);
+        top: 50%;
+    }
+    10% { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 1; 
+        top: 50%;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 0.0;
+        top: 0; 
+    }
+}
+  
