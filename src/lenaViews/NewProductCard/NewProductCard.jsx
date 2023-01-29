@@ -70,7 +70,7 @@ export default function NewProductCard(props) {
                             </>                                
                     }
                 </div>
-                <div className={'description-name-npc item-npc'}>
+                <div className={'description-name-npc item-npc text-container-npc'}>
                     <h4>{ product ? product.name : '' }</h4>
                     <div className={"description-container-npc " + product.id + (isScrollable ? " scroll-npc" : "")} >
                         <p>{ product ? product.description : '' }</p> 

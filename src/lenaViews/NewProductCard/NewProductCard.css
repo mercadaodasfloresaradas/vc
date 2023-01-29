@@ -135,6 +135,10 @@
     position: relative;
 }
 
+.text-container-npc{
+    width: 100%;
+}
+
 .scroll-npc::after{
     content: 'V';
     position: sticky;
