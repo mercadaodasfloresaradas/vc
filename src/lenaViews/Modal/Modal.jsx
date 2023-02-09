@@ -8,7 +8,7 @@ export default function Modal(props) {
         <h2>{props.title ?? 'My Title'}</h2>
         {!(props.message && typeof props.message === "string") ?
           (props.message):
-          (<p>{props.message ?? 'This is a message'}</p>)
+          ( props.message.split('\n').map((message, index )=> <p className={index !== 0? 'small-text' : ''}>{message ?? 'This is a message'}</p>) )
         }
         
         <div className="actions-container-m">

@@ -39,3 +39,8 @@
    background-color: rgba(0, 0, 0, 0.4);
    backdrop-filter: blur(10px);
 }
+
+.small-text{
+   font-size: 0.8rem;
+   margin: 0;
+}

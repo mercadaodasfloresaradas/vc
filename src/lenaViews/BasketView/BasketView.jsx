@@ -41,6 +41,7 @@ export default function ProductsView(props) {
 
         const confirmDoPurchase = (args) =>{
           props.setIsLoading(true);
+          dismissModal();
           api.newSale(args.name, args.phoneNumber, args.address, args.NIF, args.products.map((product)=> {
             return({
               id: product.id, 
@@ -52,6 +53,15 @@ export default function ProductsView(props) {
               storage.cleanBasket();
               storage.insertPlacedOrderData(data.id, data.total);
               navigate('/PlacedOrder');
+            }else if(data.isOutOfLimit){
+              const dataToChange = JSON.parse(JSON.stringify(warningData));
+          
+              dataToChange.message = 'Excedeu o número diário de pedidos de compra que pode fazer, por favor tente de novo amanhã...';
+              dataToChange.isVisible = true;
+              dataToChange.isWarning = true;
+              dataToChange.actions = stateActions[1];
+              
+              setWarningData(dataToChange);
             }
   
             props.setIsLoading(false);
@@ -181,7 +191,7 @@ export default function ProductsView(props) {
 
           const dataToChange = JSON.parse(JSON.stringify(warningData));
           
-          dataToChange.message = 'Tem a certeza que quer avançar com o pedido?';
+          dataToChange.message = 'Tem a certeza que quer avançar com o pedido?\n Anote o código na proxima página para poder acompanhar a sua encomenda.\n O valor total é apenas para os produtos, a vendedora irá informar-lhe do valor do transporte.';
           dataToChange.isVisible = true;
           dataToChange.isWarning = false;
           dataToChange.actions = stateActions[0];
