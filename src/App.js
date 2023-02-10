@@ -34,6 +34,8 @@ function App() {
         console.log('no response time out');
       }, 2900);
 
+      console.log('repeat signal', noResponseTimeout);
+
       api.home().then((response)=>{
         if(response !== 'Home'){
           setShowNoService(true);
@@ -51,6 +53,8 @@ function App() {
         setTimeout(repeatSignal, 100000);
       });
     }
+
+    repeatSignal();
     
     api.config('limitProducts').then((conf)=>{
       if(conf && conf.config && !conf.code){
@@ -63,9 +67,6 @@ function App() {
         storage.setNoService(conf.config);
       }
     });
-
-    repeatSignal();
-
     return ()=>{
 
     }
