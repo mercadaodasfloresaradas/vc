@@ -29,9 +29,14 @@ function App() {
 
   useEffect(()=>{
     const repeatSignal = () =>{
+      const noResponseTimeout = setTimeout(() => {
+        setShowNoService(false);
+      }, 2900);
+
       api.home().then((response)=>{
         if(response !== 'Home'){
           setShowNoService(true);
+          clearTimeout(noResponseTimeout);
 
           const url = new URL(window.location.href);
           const rel = url.toString().substring(url.origin.length);
