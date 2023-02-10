@@ -36,7 +36,7 @@ function App() {
 
       console.log('repeat signal', noResponseTimeout);
 
-      api.home().then((response)=>{
+      /* api.home().then((response)=>{
         if(response !== 'Home'){
           setShowNoService(true);
           clearTimeout(noResponseTimeout);
@@ -51,12 +51,12 @@ function App() {
           setShowNoService(false);
         }
         setTimeout(repeatSignal, 100000);
-      });
+      }); */
     }
 
     repeatSignal();
     
-    api.config('limitProducts').then((conf)=>{
+    /* api.config('limitProducts').then((conf)=>{
       if(conf && conf.config && !conf.code){
         storage.setOrdersLimit(conf.config);
       }
@@ -66,7 +66,7 @@ function App() {
       if(conf && conf.config && !conf.code){
         storage.setNoService(conf.config);
       }
-    });
+    }); */
     return ()=>{
 
     }
