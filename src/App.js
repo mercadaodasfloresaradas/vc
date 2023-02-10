@@ -30,33 +30,30 @@ function App() {
   useEffect(()=>{
     const repeatSignal = () =>{
       const noResponseTimeout = setTimeout(() => {
-        setShowNoService(false);
-        console.log('no response time out');
+        setShowNoService(true);
       }, 2900);
 
-      console.log('repeat signal', noResponseTimeout);
-
-      /* api.home().then((response)=>{
+      api.home().then((response)=>{
         if(response !== 'Home'){
           setShowNoService(true);
-          clearTimeout(noResponseTimeout);
-
+          
           const url = new URL(window.location.href);
           const rel = url.toString().substring(url.origin.length);
-
+          
           if(rel !== '/'){
             window.location.href = '/';
           }
         }else{
           setShowNoService(false);
+          clearTimeout(noResponseTimeout);
         }
         setTimeout(repeatSignal, 100000);
-      }); */
+      });
     }
 
     repeatSignal();
     
-    /* api.config('limitProducts').then((conf)=>{
+    api.config('limitProducts').then((conf)=>{
       if(conf && conf.config && !conf.code){
         storage.setOrdersLimit(conf.config);
       }
@@ -66,7 +63,7 @@ function App() {
       if(conf && conf.config && !conf.code){
         storage.setNoService(conf.config);
       }
-    }); */
+    });
     return ()=>{
 
     }
