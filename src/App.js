@@ -31,6 +31,7 @@ function App() {
     const repeatSignal = () =>{
       const noResponseTimeout = setTimeout(() => {
         setShowNoService(false);
+        console.log('no response time out');
       }, 2900);
 
       api.home().then((response)=>{
