@@ -17,6 +17,8 @@ export default function TestProductUI() {
     },[]);
 
     return (
+      <>
+        {product ? 
         <>    
         <LightgalleryProvider>
             <div className={'container-tpui'}>
@@ -64,6 +66,7 @@ export default function TestProductUI() {
 
              
             </LightgalleryProvider>
-        </>
+        </> : <></>}
+      </>
     )
 }
