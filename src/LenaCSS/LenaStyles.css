@@ -11,17 +11,6 @@ html, body, #root{
     color: white;
 }
 
-.message-follow-style{
-    border-style: solid;
-    border-color: #2b0548;
-    border-radius: 10px;
-    
-}
-
-.message-follow-style .card{
-    background-color: rgb(231, 228, 228);
-}
-
 .follow-overload{
     overflow-y: auto;
     overflow-x: hidden;
@@ -30,13 +19,9 @@ html, body, #root{
 }
 
 #lena-root{
-    background-image: linear-gradient(#4630ab,#2b0548);
+    background-image: linear-gradient(#ffffff,#F5F5F5);
     height: auto;
     min-height: 100vh;
-}
-
-.adress-basket{
-    margin-top: 10px;
 }
 
 .base-button-color{

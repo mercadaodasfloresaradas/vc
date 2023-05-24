@@ -1,7 +1,5 @@
 .follow-basket-fpv span{
-    color: white;
-    -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: black;
+    color: #F75973;
     font-weight: bold;
   }
 
@@ -23,11 +21,22 @@
     margin-bottom: 4px;
 }
 
+.messages-follow-container-inner-fpv{
+    border-color: rgba(242, 160, 174, 0.5);
+    box-shadow: rgba(242, 160, 174, 0.2) 0px 7px 29px 0px;
+    padding: 0 4px;
+}
+
 .indication-follow-purchase-fpv{
     margin-top: 3px;
     padding-right: 35px;
     padding-left: 25px;
     margin-bottom: 48px;
+}
+
+.indication-follow-purchase-inner-fpv{
+    border-color: rgba(242, 160, 174, 0.5);
+    box-shadow: rgba(242, 160, 174, 0.2) 0px 7px 29px 0px;
 }
 
 .follow-data-container-fpv{
@@ -37,7 +46,12 @@
 .input-container-fpv{
     display: flex;
     gap: 8px;
-    align-items: flex-end;
+    align-items: center;
+}
+
+.input-container-fpv input{
+    border-color: rgba(242, 160, 174, 0.5);
+    box-shadow: rgba(242, 160, 174, 0.2) 0px 7px 29px 0px;
 }
 
 .icon-fpv{
@@ -78,9 +92,13 @@
 .follow-overload-fpv{
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 800px;
+    height: 800px;
     gap: 16px;
     margin-top: 4px;
+}
+
+.follow-overload-small-fpv{
+    height: 300px;
 }
 
 .follow-overload-fpv .col-md-12{

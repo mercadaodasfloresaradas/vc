@@ -9,6 +9,7 @@ import { MdOutlineZoomIn, MdRemoveShoppingCart } from 'react-icons/md';
 import {
     useLightgallery,
   } from "react-lightgallery";
+import Button from '../../lenaComponents/Button/Button';
 
 export default function NewProductCard(props) {
     const product = props.data;
@@ -80,24 +81,18 @@ export default function NewProductCard(props) {
                     <div className={'buy-npc'}>
                         <p>{(product ? product.price : 0) + '€'}</p>
                         {props.isToBuy ? (
-                            <button
-                                type="button"
-                                className="btn btn-sm btn-primary product-view-buy-button-npc item-npc"
-                                title="Add to cart"
-                                onClick={()=>props.toBasket ? props.toBasket(product) : ()=>{}}
-                                >
+                            <Button content={
                                 <FontAwesomeIcon icon={faCartPlus} />
-                            </button>
+                                }
+                                onClick={()=>props.toBasket ? props.toBasket(product) : ()=>{}}
+                            />
                         ): (
                             props.isToRemove ? (
-                                <button
-                                type="button"
-                                className="btn btn-sm btn-primary product-view-buy-button-npc item-npc"
-                                title="Add to cart"
-                                onClick={()=>props.toRemove ? props.toRemove(product) : ()=>{}}
-                                >
-                                <MdRemoveShoppingCart />
-                            </button>
+                                <Button content={
+                                    <MdRemoveShoppingCart />
+                                    }
+                                    onClick={()=>props.toRemove ? props.toRemove(product) : ()=>{}}
+                                />
                             ) : (<></>)
                         )}
                     </div>

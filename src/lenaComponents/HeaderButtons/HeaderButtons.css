@@ -1,0 +1,43 @@
+.down-button-hb, .up-button-hb{
+    display: block;
+    width: 100%;
+    border-style: none;
+    padding: 5px 20px;
+    background-color: #F75973;
+    color: white;
+}
+
+.down-button-hb{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-style: solid;
+    border-top-color: #F2A0AE;
+}
+
+.up-button-hb{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+  .down-button-hb svg, .up-button-hb svg,
+  .down-button-hb i, .up-button-hb i {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+}
+
+.down-button-hb:hover, .up-button-hb:hover{
+    background-color: #F2A0AE;
+    transition: 0.5s;
+}
+
+.down-button-hb:active, .up-button-hb:active{
+    background-color: #F75973;
+    transition: 0.1s;
+}
+
+
+.down-button-hb:focus, .up-button-hb:focus{
+    border-style: none;
+    outline: none;
+}

@@ -2,7 +2,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    color: #4630ab;
+    color: #F75973;
     background-color: white;
     width: 60px;
     height: 60px;
@@ -12,7 +12,7 @@
     align-items: center;
     border-width: 6px;
     border-style: solid;
-    border-color: #4630ab;
+    border-color: #F2A0AE;
     font-size: 32px;
     font-weight: 700;
     transform: translate(-50%, -50%);

@@ -4,7 +4,7 @@ import * as api from "../../lenaHelpers/APIRequests.js";
 import * as storage from '../../lenaHelpers/LocalStorage.js';
 import { GrInstagram } from 'react-icons/gr';
 import { ImFacebook2 } from 'react-icons/im';
-import { FcBusinessContact } from 'react-icons/fc';
+import { AiFillContacts } from 'react-icons/ai';
 
 export default function Footer() {
     const [instagram, setInstagram] = useState('');
@@ -51,14 +51,14 @@ export default function Footer() {
             <footer className='main-f'>
                 <div className='contacts-f'>
                     <h4>
-                        <FcBusinessContact/>
+                        <AiFillContacts/>
                         Contactos:
                     </h4>
                     <p className='contacts-text-f'>
                         {contacts}
                     </p>
                 </div>
-                <div className='social'>
+                <div className='social-f'>
                     <a href={instagram.includes('https://')? instagram : 'https://' + instagram} target="_blank">
                         <GrInstagram className='instagram-f'/>
                     </a>

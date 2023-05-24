@@ -1,0 +1,56 @@
+.scrollable-cv{
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.scrollable-cv::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scrollable-cv::-webkit-scrollbar{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.scrollable-cv::-webkit-scrollbar-thumb{
+	background-color: #F2A0AE;
+}
+
+.card-cv{
+    border-color: rgba(242, 160, 174, 0.5);
+    box-shadow: rgba(242, 160, 174, 0.2) 0px 7px 29px 0px;
+}
+
+.card-cv .card-header{
+    color: #F75973;
+}
+
+.card-cv .stretched-link{
+    display: inline-block;
+    color: white;
+    background-color: #F75973;
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.card-cv .stretched-link:hover{
+    background-color: #F2A0AE;
+    transition: 0.5s;
+}
+
+.card-cv .stretched-link:active{
+    background-color: #F75973;
+    transition: 0.1s;
+}
+
+
+.card-cv .stretched-link:focus{
+    border-style: none;
+    outline: none;
+}
+
+.card-cv .list-group-item{
+    border-style: none;
+}

@@ -8,6 +8,9 @@
     height: 170px;
     display: flex;
     align-items: flex-end;
+    border-color: #F75973;
+    border-style: solid;
+    border-width: 0.1px;
 }
 
 .card-npc h4{
@@ -26,17 +29,6 @@
 
 .item-npc{
     padding: 16px;
-}
-
-.product-view-buy-button-npc{
-    background-color: #4630ab;
-    border-color: #1a032c;
-    padding: 12px;
-}
-
-.product-view-buy-button-npc svg{
-    width: 30px;
-    height: 30px;
 }
 
 .img-npc{
@@ -144,7 +136,7 @@
     position: sticky;
     bottom: 0;
     left: 50%;
-    color: #4630ab;
+    color: #F2A0AE;
     transform: translate(-50%, 0);
 
     -webkit-animation: pulse 3.5s infinite ease-in-out;

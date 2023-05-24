@@ -1,12 +1,12 @@
 import './PlacedOrderView.css'
 import React, { Component } from "react";
-import { useNavigate } from "react-router-dom";
 import * as api from "../../lenaHelpers/APIRequests.js";
 import * as storage from '../../lenaHelpers/LocalStorage.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { useMediaQuery } from 'react-responsive';
 import { getCSSQuery } from '../../lenaHelpers/Helpers';
+import Header from '../../lenaComponents/Header/Header';
 
 class OrdersView extends Component {
   constructor(props) {
@@ -38,46 +38,28 @@ class OrdersView extends Component {
     });
   }
 
-  Linker(props){
-    const navigate = useNavigate();
-    return(  <button
-      type="button"
-      className="btn btn-sm btn-primary base-button-color"
-      title="navigate"
-      onClick={()=>{navigate(props.route)}}
-    >
-    {props.text}
-    </button>);
-  }
 
-  Navigation(props){
+  Follow = () =>{
     const isMD = getCSSQuery(useMediaQuery, 'md');
 
-    return(
-            <div className="container text-center navigation-pov">
-                {isMD ? <></> : <props.linker text={'Acompanhar Encomenda'} route={'/FollowPurchase'}/>}
-                <span className="display-5 px-3 bg-white rounded shadow">
-                  Pedido Efectuado
-                </span>
-                <div className="actions-md-pov">
-                  {isMD ? <props.linker text={'Acompanhar Encomenda'} route={'/FollowPurchase'}/> : <></>}
-                  <props.linker text={'Productos'} route={'/Products'}/>
-                </div>
-            </div>
-          );
+    return( <>Acompanhar {isMD ? <br/> : <></>} Encomenda</> );
   }
 
   render() {
     return (
-      <div className="">
-        <div
-            className="p-5 bg-primary bs-cover"
-            style={{
-              backgroundImage: "url(../../images/LenaTestProducts/banner.png)",
-            }}
-          >
-            <this.Navigation linker={this.Linker}/>
-        </div>
+      <div>
+        <Header
+            title={"Carrinho"}
+            img={"url(../../images/LenaTestProducts/banner.png)"}
+            upLink={{
+                link: "/FollowPurchase", 
+                content: <this.Follow/>
+              }}
+            downLink={{
+                link: "/Products", 
+                content: "Produtos"
+              }}
+          />
         <div className="id-purchase-pov">
             ID de Compra
             <br/>
@@ -92,7 +74,7 @@ class OrdersView extends Component {
           
           <div className="row g-3">
             <div className="col-md-6">
-              <div className="card">
+              <div className="card card-pov">
                 <div className="row g-0">
                   <div className="col-md-9">
                     <div className="card-body">
@@ -123,7 +105,7 @@ class OrdersView extends Component {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="card">
+              <div className="card card-pov">
                 <div className="row g-0">
                   <div className="col-md-9">
                     <div className="card-body">

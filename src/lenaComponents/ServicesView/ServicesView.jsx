@@ -3,9 +3,11 @@ import { ReactComponent as IconTruckFill } from "bootstrap-icons/icons/truck.svg
 import { ReactComponent as IconLifePreserverFill } from "bootstrap-icons/icons/life-preserver.svg";
 import { ReactComponent as IconArrowCounterclockwiseFill } from "bootstrap-icons/icons/arrow-counterclockwise.svg";
 
+import "./ServicesView.css";
+
 const CardServices = (props) => {
   return (
-    <div className="card">
+    <div className="card card-sv">
       <div className="card-header font-weight-bold text-uppercase">
         Serviço ao Cliente
       </div>

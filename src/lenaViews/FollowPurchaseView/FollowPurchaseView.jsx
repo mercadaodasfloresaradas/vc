@@ -2,27 +2,22 @@
 import './FollowPurchaseView.css';
 import React, { lazy, useState, useEffect} from "react";
 import * as api from "../../lenaHelpers/APIRequests.js";
-import { useNavigate } from "react-router-dom";
+import ProductsContainer from '../../lenaComponents/ProductsContainer/ProductsContainer';
 import { IoSearchCircle } from "react-icons/io5";
 import { BiConversation } from "react-icons/bi";
 import { useMediaQuery } from 'react-responsive';
 import { getCSSQuery } from '../../lenaHelpers/Helpers';
-import {
-  LightgalleryProvider,
-  LightgalleryItem,
-} from "react-lightgallery";
-import "lightgallery.js/dist/css/lightgallery.css";
+import Header from '../../lenaComponents/Header/Header';
+import Button from '../../lenaComponents/Button/Button';
 
-const NewProductCard = lazy(() =>
-  import("../NewProductCard/NewProductCard")
-);
+import "lightgallery.js/dist/css/lightgallery.css";;
 
 const CardFollowList = lazy(() =>
-  import("../SingleFollowCard")
+  import("../../lenaComponents/SingleFollowCard/SingleFollowCard")
 );
 
 const MessageFollowList = lazy(() =>
-  import("../SingleFollowMessage")
+  import("../../lenaComponents/SingleFollowMessage/SingleFollowMessage")
 );
 
 const Basket = lazy(() =>
@@ -32,9 +27,6 @@ const Basket = lazy(() =>
 const Modal = lazy(() =>
   import("../Modal/Modal")
 );
-
-
-
 
 export default function ProductsView(props) {
 
@@ -140,14 +132,11 @@ export default function ProductsView(props) {
                     required
                     value={newMessage}
                     onChange={(e)=>{
-                      //console.log(e.target.value);
                       setNewMessage(e.target.value);
                     }}
               />
           </div>);
         }
-
-        const [photos, setPhotos] = useState({});
 
         const [messages, setMessages] = useState([]);
         const [view,] = useState('list');
@@ -234,109 +223,97 @@ export default function ProductsView(props) {
           setTimer(inter);
           
         }
-
-        const Linker = (props) =>{
-          const navigate = useNavigate();
-          return(  <button
-            type="button"
-            className="btn btn-sm btn-primary base-button-color"
-            title="navigate"
-            onClick={()=>{navigate(props.route)}}
-          >
-          {props.text}
-          </button>);
-        }
       
 
     return (
         <>
-        <LightgalleryProvider>
-          <div
-            className="p-5 bg-primary bs-cover"
-            style={{
-              backgroundImage: "url(../../images/LenaTestProducts/banner.png)",
-            }}
-          >
-            <div className="container text-center header-fpv">
-              {isMD? <></> : <Linker text={'Products'} route={'/Products'}/>}
-              <span className="display-5 px-3 bg-white rounded shadow">
-                Seguimento de Encomenda
-              </span>
-              <div className="actions-md-fpv">
-                <Basket isFollowMD={isMD}/>
-                {isMD? <Linker text={'Products'} route={'/Products'}/> : <></>}
-              </div>
-            </div>
-          </div>
+
+          <Header
+            title={<>Acompanhar {isMD ? <br/> : <></>} Encomenda</>}
+            img={"url(../../images/LenaTestProducts/banner.png)"}
+            upLink={{
+                link: "/ViewBasket", 
+                content: <Basket isFollowMD={isMD} />
+              }}
+            downLink={{
+                link: "/Products", 
+                content: "Produtos"
+              }}
+          />
          
           <div className="container-fluid mb-3 follow-data-container-fpv">
             <div className="row">
               {
                 isMD? <></> : 
-                (<div className="col-md-4">
+                (
+                  <>
+                 <div className="col-md-4">
                   <div className="row g-3 follow-overload-fpv">
-                    {view === "list" &&
-                      products.map((product, idx) => {
-                        return (
-                          <div key={idx} className="col-md-12">
-                            <NewProductCard 
-                              data={product} 
-                              photos={photos}
-                              setPhotos={setPhotos}/>
-                          </div>
-                        );
-                      })}
+                    {view === "list" && products.length !== 0 &&
+                     (
+                      <ProductsContainer 
+                          productsInjected={products}
+                          isToBuy={false}
+                          showPrice={false}
+                          noMargin={true}
+                          />
+                     )}
                   </div>
-                </div>)
+                </div>
+                      
+                  </>
+                )
               }
               
               {
                 products.length > 0 ? 
                 (<div className="col-md-4 indication-follow-purchase-fpv">
-                  <CardFollowList title="Estado da Encomenda" bodyMessage={purchaseState}/>
-                  <CardFollowList title="Total Encomenda" bodyMessage={ total + '€'}/>
-                  <CardFollowList title="Avisos" bodyMessage={warnings} isList={true}/>
+                  <div className='indication-follow-purchase-inner-fpv'>
+                    <CardFollowList title="Estado da Encomenda" bodyMessage={purchaseState}/>
+                    <CardFollowList title="Total Encomenda" bodyMessage={ total + '€'}/>
+                    <CardFollowList title="Avisos" bodyMessage={warnings} isList={true}/>
+                  </div>
                 </div>) : (<></>)
               }
               <div className="col-md-4">
                 <div className="messages-follow-container-fpv">
-                  {messages.map((message, index)=>{
-                    return (
-                        <MessageFollowList key={index}
-                          user={message.sender} 
-                          message={message.message}></MessageFollowList>
-                    );
-                  })}
+                  <div className="messages-follow-container-inner-fpv">
+                    {messages.map((message, index)=>{
+                      return (
+                          <MessageFollowList key={index}
+                            user={message.sender} 
+                            message={message.message}></MessageFollowList>
+                      );
+                    })}
+
+                  </div>
                 </div>
                 {messages.length ?
                 <div className='conversation-fpv'>
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-primary base-button-color"
-                    title="search"
-                    onClick={()=>{
+                  <Button 
+                  onClick={()=>{
                       setWarningData({
                         ...warningData,
                         isVisible: true
                       });
                     }}
-                  >
-                    <BiConversation className='icon-fpv'/>
-                  </button>
+                  content={<BiConversation className='icon-fpv'/>}
+                  />
                 </div> : <></>}
               </div>
               {
                 isMD? 
                 (<div className="col-md-4 margins-md-fpv">
-                  <div className="row g-3 follow-overload-fpv">
-                    {view === "list" &&
-                      products.map((product, idx) => {
-                        return (
-                          <div key={idx} className="col-md-12">
-                            <NewProductCard data={product} photos={photos} setPhotos={setPhotos} />
-                          </div>
-                        );
-                      })}
+                  <div className="row g-3 follow-overload-small-fpv">
+                    {view === "list" && products.length !== 0 &&
+                     (
+                      <ProductsContainer 
+                          productsInjected={products}
+                          isToBuy={false}
+                          showPrice={false}
+                          noMargin={true}
+                          />
+                     )}
                   </div>
                 </div>) : <></>
               }
@@ -358,31 +335,15 @@ export default function ProductsView(props) {
                       value={id}
                       onChange={(e)=>setId(e.target.value)}
                 />
-                <button
-                  type="button"
-                  className="btn btn-sm btn-primary base-button-color"
-                  title="search"
+
+                <Button 
                   onClick={checkPurchase}
-                >
-                <IoSearchCircle className='icon-fpv'/>
-                </button>
+                  content={<IoSearchCircle className='icon-fpv'/>}
+                  />
               </div>
             </div>
           </div>
           <Modal {...warningData}/>
-          <div hidden={true}>
-              {Object.keys(photos).map((photoCollection, index)=>{
-                  return photos[photoCollection].map((item, innerIndex)=>{
-                    return(
-                    <LightgalleryItem key={index} group={photoCollection} src={item}>
-                      <img src={item} style={{ width: "100%" }} alt={""}/>
-                    </LightgalleryItem>
-                    );
-                  })
-                })
-              }
-          </div>
-          </LightgalleryProvider>
         </>
     )
 }

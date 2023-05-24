@@ -1,3 +1,4 @@
+import Button from '../../lenaComponents/Button/Button';
 import './Modal.css';
 import React from 'react';
 
@@ -13,15 +14,16 @@ export default function Modal(props) {
         
         <div className="actions-container-m">
             {props.actions ? props.actions.map((action, index)=>{
-              return <button
-                      key={index}
-                      type="button"
-                      className="btn btn-sm btn-primary action-m"
-                      title="Add to cart"
-                      onClick={()=>action.callback(props.arg)}
-                    >
-                    {action.name}
-                    </button>
+              return (
+                    <>
+                      <Button 
+                        key={index}
+                        onClick={()=>action.callback(props.arg)}
+                        content={
+                          action.name
+                        }/>
+
+                    </>)
             }): <></>}
         </div>
       </div>

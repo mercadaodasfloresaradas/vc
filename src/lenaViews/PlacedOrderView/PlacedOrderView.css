@@ -9,7 +9,7 @@
     background-color: white;
     border-radius: 10px;
     padding: 10px;
-    border-color:  #2b0548;
+    border-color:  #F75973;
     border-width: 4px;
     border-style: solid;
 }
@@ -25,4 +25,9 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.card-pov{
+    border-color: rgba(242, 160, 174, 0.5);
+    box-shadow: rgba(242, 160, 174, 0.2) 0px 7px 29px 0px;
 }

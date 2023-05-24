@@ -5,20 +5,15 @@ import React, { lazy, useState, useEffect, useRef } from "react";
 import * as api from "../../lenaHelpers/APIRequests.js";
 import * as storage from '../../lenaHelpers/LocalStorage.js';
 import { useNavigate } from "react-router-dom";
-import {
-  LightgalleryProvider,
-  LightgalleryItem,
-} from "react-lightgallery";
 import { useMediaQuery } from 'react-responsive';
 import { getCSSQuery } from '../../lenaHelpers/Helpers';
+import ProductsContainer from '../../lenaComponents/ProductsContainer/ProductsContainer';
+import Header from '../../lenaComponents/Header/Header';
+import Button from '../../lenaComponents/Button/Button';
 
 
 const Modal = lazy(() =>
   import("../Modal/Modal")
-);
-
-const NewProductCard = lazy(() =>
-  import("../NewProductCard/NewProductCard")
 );
 
 
@@ -71,9 +66,6 @@ export default function ProductsView(props) {
           });
         }
 
-        
-
-        const [photos, setPhotos] = useState({});
         const [warningAction] = useState(
           [
             {
@@ -202,153 +194,118 @@ export default function ProductsView(props) {
         }
       }
 
-      const Linker = (props) =>{
-        const navigate = useNavigate();
-        return(  <button
-          type="button"
-          className="btn btn-sm btn-primary base-button-color"
-          title="navigate"
-          onClick={()=>{navigate(props.route)}}
-        >
-        {props.text}
-        </button>);
-      }
-
       const toRemove = (product) =>{
         storage.removeProductFromBasket(product);
         updateProducts();
       }
+
       const Actions = () =>{
         return(
-            <div className="col-md-6 purchase-actions-bv">
               <div className="purchase-actions-inner-bv">
-                <span className="display-5 px-3 bg-white rounded shadow basket-total-bv">
-                  total
-                  <br />
-                  {totalPrice ?? 0} €
-                </span>
-                <button
-                  id="products-request"
-                  type="button"
-                  className="btn btn-lg btn-primary mr-2 col-sm basket-button-bv"
-                  title="Products"
-                  onClick={makePurchase}
-                  >
-                    Fazer Pedido 
-                </button>
-              </div>
+                <div className='total-make-bv'>  
+                  <span className="display-5 px-3 bg-white rounded basket-total-bv">
+                    total
+                    <br />
+                    {totalPrice ?? 0} €
+                  </span>
+                  <Button 
+                    onClick={makePurchase}
+                    content={"Fazer Pedido "}
+                    />
+                </div>
               </div>
         )
       }
 
     return (
         <React.Fragment>
-        <LightgalleryProvider>
-          <div
-            className="p-5 bg-primary bs-cover"
-            style={{
-              backgroundImage: "url(../../images/LenaTestProducts/banner.png)",
-            }}
-          >
-            <div className="container text-center header-bv">
-              
-              {isMD ? 
-                  <></> :
-                  <Linker text={'Acompanhar Encomenda'} route={'/FollowPurchase'}></Linker>}
-              <span className="display-5 px-3 bg-white rounded shadow">
-                Carrinho
-              </span>
-              <div className={"actions-md-bv"}>
-                {isMD ? 
-                  <Linker text={'Acompanhar Encomenda'} route={'/FollowPurchase'}></Linker>
-                  : <></>}
-                <Linker text={'Productos'} route={'/Products'}></Linker>
-              </div>
-            </div>
-          </div>
+          <Header
+            title={"Carrinho"}
+            img={"url(../../images/LenaTestProducts/banner.png)"}
+            upLink={{
+                link: "/FollowPurchase", 
+                content: <>Acompanhar {isMD ? <br/> : <></>} Encomenda</>
+              }}
+            downLink={{
+                link: "/Products", 
+                content: "Produtos"
+              }}
+          />
          
-          <div className="container-fluid mb-3">
-            <div className="row">
-              <div className="col-md-6">
-              <label className="label-bv">
-                Nome Completo
-              </label>
-              <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  className="form-control adress-basket"
-                  placeholder="Nome completo"
-                  required
-                  value={name}
-                  onChange={(e)=>setName(e.target.value)}
-                  ref={inputRef}
-                />
-              <label className="label-bv">
-                Telemóvel assoc. MBWay
-              </label>
-              <input
-                  id="phone"
-                  name="phone"
-                  type='number'
-                  className="form-control adress-basket"
-                  placeholder="Número de telefone associado ao MBWay"
-                  required
-                  value={phoneNumber}
-                  onChange={(e)=>setPhoneNumber(e.target.value)}
-                />
-              <label className="label-bv">
-                NIF
-              </label>
-              <input
-                  id="NIF"
-                  name="NIF"
-                  type='number'
-                  className="form-control adress-basket"
-                  placeholder="NIF"
-                  required
-                  value={NIF}
-                  onChange={(e)=>setNIF(e.target.value)}
-                />
-              <label className="label-bv">
-                Morada Completa
-              </label>
-              <input
-                  id="adress"
-                  name="adress"
-                  type="text"
-                  className="form-control adress-basket"
-                  placeholder="Morada"
-                  required
-                  value={address}
-                  onChange={(e)=>setAddress(e.target.value)}
-                />
-              </div>
-              <Actions/>
-            </div>
-            <div className="row row-space-bv">
-              <div className="col-md-6">
-                <hr />
-                <div className="row g-3 basket-overload-bv">
-                  {view === "list" &&
-                    products.map((product, idx) => {
-                      return (
-                        <div key={idx} className="col-md-12 row-bv">
-                          <NewProductCard 
-                            data={product} 
-                            showPrice={true}
-                            isToRemove={true}
-                            toRemove={toRemove}
-                            photos={photos}
-                            setPhotos={setPhotos}/>
-                        </div>
-                      );
-                    })}
+          <div className="container-bv">
+              <div className='inputs-actions-bv'>
+                <div className='container-inputs-bv'>
+                  <label className="label-bv">
+                    Nome Completo
+                  </label>
+                  <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      className="form-control input-basket"
+                      placeholder="Nome completo"
+                      required
+                      value={name}
+                      onChange={(e)=>setName(e.target.value)}
+                      ref={inputRef}
+                    />
+                  <label className="label-bv">
+                    Telemóvel assoc. MBWay
+                  </label>
+                  <input
+                      id="phone"
+                      name="phone"
+                      type='number'
+                      className="form-control input-basket"
+                      placeholder="Número de telefone associado ao MBWay"
+                      required
+                      value={phoneNumber}
+                      onChange={(e)=>setPhoneNumber(e.target.value)}
+                    />
+                  <label className="label-bv">
+                    NIF
+                  </label>
+                  <input
+                      id="NIF"
+                      name="NIF"
+                      type='number'
+                      className="form-control input-basket"
+                      placeholder="NIF"
+                      required
+                      value={NIF}
+                      onChange={(e)=>setNIF(e.target.value)}
+                    />
+                  <label className="label-bv">
+                    Morada Completa para Envio
+                  </label>
+                  <input
+                      id="adress"
+                      name="adress"
+                      type="text"
+                      className="form-control input-basket"
+                      placeholder="Morada"
+                      required
+                      value={address}
+                      onChange={(e)=>setAddress(e.target.value)}
+                    />
                 </div>
-                <hr />
+                <Actions/>
               </div>
+            <div className="products-bv">
+                <hr />
+                  {view === "list" &&
+                    (<ProductsContainer 
+                          productsInjected={products}
+                          isToRemove={true}
+                          isToBuy={false}
+                          showPrice={true}
+                          noMargin={true}
+                          toRemove={toRemove}
+                          />)}
+                <hr />
             </div> 
           </div>
+          <div className='space-bv'></div>
           <Modal {...warningData}
             title={warningData.title}
             message={warningData.message}
@@ -357,19 +314,6 @@ export default function ProductsView(props) {
             isVisible={warningData.isVisible}
             arg={warningData.arg}
           />
-          <div hidden={true}>
-              {Object.keys(photos).map((photoCollection, index)=>{
-                  return photos[photoCollection].map((item, innerIndex)=>{
-                    return(
-                    <LightgalleryItem key={index} group={photoCollection} src={item}>
-                      <img src={item} style={{ width: "100%" }} alt={""}/>
-                    </LightgalleryItem>
-                    );
-                  })
-                })
-              }
-          </div>
-        </LightgalleryProvider>
         </React.Fragment>
     )
 }

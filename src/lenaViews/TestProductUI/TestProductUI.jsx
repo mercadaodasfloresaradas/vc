@@ -7,6 +7,7 @@ import {
   LightgalleryItem,
 } from "react-lightgallery";
 import "lightgallery.js/dist/css/lightgallery.css";
+import Button from '../../lenaComponents/Button/Button';
 
 export default function TestProductUI() {
     const [product, setProduct] = useState();
@@ -67,6 +68,7 @@ export default function TestProductUI() {
              
             </LightgalleryProvider>
         </> : <></>}
+        <Button content="Login"/>
       </>
     )
 }

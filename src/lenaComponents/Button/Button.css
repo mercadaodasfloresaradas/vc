@@ -1,0 +1,29 @@
+.container-btn{
+    border-style: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #F75973;
+    color: white;
+}
+
+.container-btn svg, .container-btn i{
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+}
+
+.container-btn:hover{
+    background-color: #F2A0AE;
+    transition: 0.5s;
+}
+
+.container-btn:active{
+    background-color: #F75973;
+    transition: 0.1s;
+}
+
+
+.container-btn:focus{
+    border-style: none;
+    outline: none;
+}

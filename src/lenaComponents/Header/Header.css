@@ -1,0 +1,38 @@
+.container-header-h{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    max-width: initial;
+}
+
+.actions-smd-h .container-bk{
+    order: 1;
+}
+
+.actions-smd-h{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.actions-smd-h button{
+    order: 2;
+}
+
+.actions-md-h{
+    display: flex;
+    gap: 48px;
+}
+
+.actions-smd-h .container-bk{
+    order: 1;
+}
+
+.less-padding-h{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.clickable-title-h{
+    cursor: pointer;
+}

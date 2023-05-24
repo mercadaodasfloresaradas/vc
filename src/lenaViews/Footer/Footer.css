@@ -5,14 +5,13 @@
     left: 0;
     right: 0;
     height: 100px;
-    background-image: linear-gradient(#2b0548, #4630ab);
-    border-top-style: solid;
+    background-image: linear-gradient(#F75973, #F2A0AE);
     display: flex;
     justify-content: space-between;
     padding: 16px;
 }
 
-.social{
+.social-f{
     display: flex;
     gap: 36px;
 }
