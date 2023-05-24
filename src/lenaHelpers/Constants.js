@@ -1,4 +1,4 @@
-export const baseURL = 'https://redirect-without-cors-and50-mb.vercel.app'//https://redirect-mercadaodasflores.vercel.app';
+export const baseURL = 'https://redirect-mercadaodasflores.vercel.app';//'https://redirect-without-cors-and50-mb.vercel.app' ;
 export const productsByCategory = baseURL + '/products/bycategory';
 export const photo = baseURL + '/products/photo';
 export const categories = baseURL + '/products/categories';
